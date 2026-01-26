@@ -1,17 +1,19 @@
 pipeline {
     agent any
     stages{
-        stage('DEBUG - Terraform dir') {
+        stage('DEBUG – Terraform sees this') {
   steps {
     sh '''
+      echo "PWD:"
       pwd
-      ls
-      ls terraform
-      ls terraform/env
-      ls terraform/env/dev
+      echo "----- ls -la -----"
+      ls -la
+      echo "----- find .tf -----"
+      find . -maxdepth 3 -name "*.tf"
     '''
   }
 }
+
 
         stage('Terraform Init') {
             steps {
