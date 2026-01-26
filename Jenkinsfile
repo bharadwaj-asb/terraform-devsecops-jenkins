@@ -15,9 +15,11 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                sh 'cd terraform/env/dev'
-                sh 'terraform init -backend=false'
+                sh '''
+                'cd terraform/env/dev'
+                'terraform init -backend=false'
                 sh 'ls'
+                '''
         }
     }
     stage('Terraform Validate') {
