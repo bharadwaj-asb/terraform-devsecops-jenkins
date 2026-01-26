@@ -22,6 +22,7 @@ pipeline {
                     sh '''
                     terraform validate
                     terraform plan -out=tfplan
+                    tfsec .
                     '''
                 }
             }
@@ -32,6 +33,7 @@ pipeline {
                     sh '''
                     terraform validate
                     terraform plan -out=tfplan
+                    tfsec .
                     '''
                 }
             }
@@ -42,10 +44,10 @@ pipeline {
                     sh '''
                     terraform validate
                     terraform plan -out=tfplan
+                    tfsec .
                     '''
                 }
             }
         }
-
     }
 }
