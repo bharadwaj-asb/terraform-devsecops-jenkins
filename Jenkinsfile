@@ -7,8 +7,8 @@ pipeline {
       pwd
       ls -la
       ls -la terraform
-      ls -la terraform/envs
-      ls -la terraform/envs/dev
+      ls -la terraform/env
+      ls -la terraform/env/dev
     '''
   }
 }
