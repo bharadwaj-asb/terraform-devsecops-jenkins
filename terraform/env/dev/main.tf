@@ -8,7 +8,7 @@ provider "aws" {
 }
 
 module "web_sg" {
-  source = "../../modules/security-group"
+  source = "../../modules/security_groups"
   name   = "web-sg"
   # using insecure default cidr
 }
