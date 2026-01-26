@@ -5,10 +5,10 @@ pipeline {
   steps {
     sh '''
       pwd
-      ls -la
-      ls -la terraform
-      ls -la terraform/env
-      ls -la terraform/env/dev
+      ls
+      ls terraform
+      ls terraform/env
+      ls terraform/env/dev
     '''
   }
 }
