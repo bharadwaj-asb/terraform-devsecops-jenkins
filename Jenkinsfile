@@ -3,8 +3,11 @@ pipeline {
     stages{
         stage('Terraform') {
   steps {
-    dir('terraform/envs/dev') {
+    dir('terraform/env/dev') {
       sh '''
+        echo "PWD:"
+        pwd
+        echo "FILES:"
         ls -la
         terraform init -backend=false
         terraform validate
@@ -13,6 +16,7 @@ pipeline {
     }
   }
 }
+
 
     }
 }
