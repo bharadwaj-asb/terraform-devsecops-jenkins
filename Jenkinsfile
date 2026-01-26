@@ -10,7 +10,9 @@ pipeline {
     stage('Terraform Validate') {
         steps {
             sh 'cd terraform/modules/iam'
+            sh 'terraform init -backend=false'
             sh 'terraform validate'
+            
       }
     }
     stage('Terraform plan'){
