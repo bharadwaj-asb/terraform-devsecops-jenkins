@@ -17,6 +17,7 @@ pipeline {
             steps {
                 sh 'cd terraform/env/dev'
                 sh 'terraform init -backend=false'
+                sh 'ls'
         }
     }
     stage('Terraform Validate') {
@@ -24,6 +25,7 @@ pipeline {
             sh 'cd terraform/modules/iam'
             sh 'terraform init -backend=false'
             sh 'terraform validate'
+            sh 'ls'
             
       }
     }
@@ -32,18 +34,21 @@ pipeline {
             sh 'cd terraform/modules/iam'
             sh 'terraform init -backend=false'
             sh 'terraform plan -out=tfplan'
+            sh 'ls'
           }
       }
       stage('Terraform show'){
         steps{
             sh 'terraform init -backend=false'
             sh 'terraform show -json tfplan > plan.json'
+            sh 'ls'
           }
       }
       stage('Tfsec'){
         steps{
             sh 'cd terraform/modules/iam'
             sh 'terraform init -backend=false'
+            sh 'ls'
             sh 'tfsec .'
             sh 'cd terraform/modules/network'
             sh 'terraform init -backend=false'
