@@ -1,6 +1,18 @@
 pipeline {
     agent any
     stages{
+        stage('DEBUG - Terraform dir') {
+  steps {
+    sh '''
+      pwd
+      ls -la
+      ls -la terraform
+      ls -la terraform/envs
+      ls -la terraform/envs/dev
+    '''
+  }
+}
+
         stage('Terraform Init') {
             steps {
                 sh 'cd terraform/env/dev'
