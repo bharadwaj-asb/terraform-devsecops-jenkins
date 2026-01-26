@@ -1,4 +1,7 @@
-stage('Terraform') {
+pipeline {
+    agent any
+    stages{
+        stage('Terraform') {
   steps {
     dir('terraform/envs/dev') {
       sh '''
@@ -9,4 +12,7 @@ stage('Terraform') {
       '''
     }
   }
+}
+
+    }
 }
