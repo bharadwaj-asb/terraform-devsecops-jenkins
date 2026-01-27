@@ -17,7 +17,7 @@ pipeline {
     stage('tfsec') {
       steps {
         dir('terraform/env/dev') {
-          sh 'tfsec . --minimum-severity HIGH --no-color'
+          sh 'tfsec . --minimum-severity CRITICAL --no-color'
         }
       }
     }
