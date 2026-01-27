@@ -6,9 +6,9 @@ pipeline {
       steps {
         dir('terraform/env/dev') {
           sh '''
-            terraform init -backend=false
-            terraform validate
-            terraform plan -out=tfplan
+            terraform init -no-color
+            terraform validate -no-color
+            terraform plan -no-color -out=tfplan
           '''
         }
       }
